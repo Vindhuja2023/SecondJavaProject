@@ -77,7 +77,7 @@ public class CRSScore {
 	}
 
 	void adaptability(String relativePRCanada, String studyCanada, String workCanada) {
-		if (relativePRCanada.endsWith("Y")) {
+		if (relativePRCanada.equals("Y")) {
 			pointsScored += 5;
 		}
 		if (studyCanada.equals("Y")) {
