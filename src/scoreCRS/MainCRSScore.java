@@ -30,9 +30,13 @@ public class MainCRSScore {
 		String relativePRCanada = sc.next();
 		System.out.println("Have you studied in Canada for atleast 2 years (Y/N)");
 		String studyCanada = sc.next();
-		System.out.println("Have you worked in Canada for atleast 2 years at NOC 0, A, B (Y/N)");
-		String workCanada = sc.next();
-		crs.adaptability(relativePRCanada, studyCanada, workCanada);
+		System.out.println("Have you worked in Canada for atleast 2 years at NOC 0(Y/N)");
+		String workCanadaCatogeryO = sc.next();
+		System.out.println("Have you worked in Canada for atleast 2 years at NOC A(Y/N)");
+		String workCanadaCatogeryA = sc.next();
+		System.out.println("Have you worked in Canada for atleast 2 years at NOC B (Y/N)");
+		String workCanadaCatogeryB = sc.next();
+		crs.adaptability(relativePRCanada, studyCanada,workCanadaCatogeryO,workCanadaCatogeryA,workCanadaCatogeryB);
 		crs.finalDecisionScore();
 		sc.close();
 

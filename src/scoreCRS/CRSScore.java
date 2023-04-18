@@ -13,7 +13,10 @@ public class CRSScore {
 			if (level.equals(educationLevel[i])) {
 				pointsScored = point[i];
 			}
-		} // System.out.println(pointsScored);
+		}if (pointsScored == 0) {
+			System.out.println("Invalid entry");
+		}
+		// System.out.println(pointsScored);
 
 	}
 
@@ -76,14 +79,14 @@ public class CRSScore {
 		} // System.out.println(pointsScored);
 	}
 
-	void adaptability(String relativePRCanada, String studyCanada, String workCanada) {
+	void adaptability(String relativePRCanada, String studyCanada, String workCanadaCatogeryO,String workCanadaCatogeryA,String workCanadaCatogeryB) {
 		if (relativePRCanada.equals("Y")) {
 			pointsScored += 5;
 		}
 		if (studyCanada.equals("Y")) {
 			pointsScored += 5;
 		}
-		if (workCanada.equals("Y")) {
+		if (workCanadaCatogeryO.equals("Y")||workCanadaCatogeryA.equals("Y")||workCanadaCatogeryB.equals("Y")) {
 			pointsScored += 10;
 		} // System.out.println(pointsScored);
 	}

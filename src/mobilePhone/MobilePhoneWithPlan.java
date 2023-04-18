@@ -74,28 +74,33 @@ public class MobilePhoneWithPlan {
 		return valueReturnToCheckAvailability;
 	}
 
-	void selectPlan(String[] connectionProvider, int[] planAmount) {
+	boolean selectPlan(String[] connectionProvider, int[] planAmount) {
 		System.out.println("Please select the plan that you want to opt for:");
 		for (int i = 0; i < connectionProvider.length; i++) {
 			System.out.println(connectionProvider[i] + "  $" + planAmount[i]);
 		}
 		planSelect = mob.next();
+		boolean planValue=false;
 		for (int i = 0; i < connectionProvider.length; i++) {
 			if (planSelect.equals(connectionProvider[i])) {
 				pricePlanSelect = planAmount[i];
 				price += planAmount[i];
-			} else {
-				System.out.println("The plan you have selected is not available.");
-				break;
+				planValue=true;
+			}}if(planValue=true) {
+				System.out.println("The plan you have selected is available.");
 			}
-		}
+			else {
+				System.out.println("The plan you have selected is not available.");
+				
+			}
+		return planValue;
 	}
 
 	void finalBillAmount() {
 		System.out.println("You have Selected " + modelSelect + " with " + planSelect + " Plan.");
 		System.out.println("Your Phone Tab will be : $" + priceModelSelect);
 		System.out.println("Your Monthly Plan will be : $" + pricePlanSelect);
-		System.out.println("Total Monthly Amoun : $" + price);
+		System.out.println("Total Monthly Amount : $" + price);
 
 	}
 }

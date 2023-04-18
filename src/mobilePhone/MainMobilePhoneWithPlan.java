@@ -27,8 +27,10 @@ public class MainMobilePhoneWithPlan {
 		if (value) {
 			String[] connectionProvider = { "Rogers", "Bell", "Telus" };
 			int[] planAmount = { 70, 80, 75 };
-			phone.selectPlan(connectionProvider, planAmount);
-			phone.finalBillAmount();
+			boolean valuePlan = phone.selectPlan(connectionProvider, planAmount);
+			if (valuePlan) {
+				phone.finalBillAmount();
+			}
 		}
 		sc.close();
 	}
