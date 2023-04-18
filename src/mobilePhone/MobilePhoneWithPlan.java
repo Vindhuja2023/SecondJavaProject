@@ -30,7 +30,7 @@ public class MobilePhoneWithPlan {
 
 			System.out.println(modelsSamsung[i] + "  $" + tabAmountSamsung[i]);
 		}
-		modelSelect = mob.next();
+		modelSelect = mob.nextLine();
 		for (int i = 0; i < modelsSamsung.length; i++) {
 			if (modelSelect.equals(modelsSamsung[i])) {
 				priceModelSelect = tabAmountSamsung[i];
@@ -54,7 +54,7 @@ public class MobilePhoneWithPlan {
 			System.out.println(modelsApple[i] + "  $" + tabAmountApple[i]);
 		}
 
-		modelSelect = mob.next();
+		modelSelect = mob.nextLine();
 
 		for (int i = 0; i < modelsApple.length; i++) {
 			if (modelSelect.equals(modelsApple[i])) {
@@ -86,7 +86,10 @@ public class MobilePhoneWithPlan {
 				pricePlanSelect = planAmount[i];
 				price += planAmount[i];
 				planValue=true;
-			}}if(planValue=true) {
+			}else {
+				planValue=false;
+			}
+			}if(planValue==true) {
 				System.out.println("The plan you have selected is available.");
 			}
 			else {

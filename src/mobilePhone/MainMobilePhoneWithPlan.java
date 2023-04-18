@@ -12,9 +12,9 @@ public class MainMobilePhoneWithPlan {
 		System.out.println("Please enter the Brand that you want to choose from: Apple/ Samsung :");
 		String os = sc.next();
 		String phoneType = phone.operatingSystemPreffered(os);
-		String[] modelSamsung = { "S22", "S22+", "S22Ultra", "S22FE" };
+		String[] modelSamsung = { "S22", "S22 +", "S22 Ultra", "S22 FE" };
 		int[] tabAmountSamsung = { 25, 35, 55, 20 };
-		String[] modelApple = { "IPhone14", "Iphone14Pro", "IPhone14ProMax", "IPhone14Mini" };
+		String[] modelApple = { "IPhone 14", "Iphone 14 Pro", "IPhone 14 Pro Max", "IPhone 14 Mini" };
 		int[] tabAmountApple = { 30, 40, 65, 25 };
 		boolean value = false;
 		if (phoneType.equals("Apple")) {
