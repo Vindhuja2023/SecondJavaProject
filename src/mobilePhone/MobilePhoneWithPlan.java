@@ -10,6 +10,7 @@ public class MobilePhoneWithPlan {
 	int priceModelSelect;
 	String planSelect;
 	int pricePlanSelect;
+	boolean valueReturnToCheckAvailability;
 
 	String operatingSystemPreffered(String operatingSystem) {
 
@@ -17,11 +18,13 @@ public class MobilePhoneWithPlan {
 			System.out.println("You have selected Apple phone with IOS.");
 		} else if (operatingSystem.equals("Samsung")) {
 			System.out.println("You have selected Samsung phone with Android.");
+		} else {
+			System.out.println("The option you have selected is not available");
 		}
 		return operatingSystem;
 	}
 
-	void samsungPhoneModels(String[] modelsSamsung, int[] tabAmountSamsung) {
+	boolean samsungPhoneModels(String[] modelsSamsung, int[] tabAmountSamsung) {
 		System.out.println("Please enter the model that you want to buy from below ");
 		for (int i = 0; i < modelsSamsung.length; i++) {
 
@@ -32,11 +35,20 @@ public class MobilePhoneWithPlan {
 			if (modelSelect.equals(modelsSamsung[i])) {
 				priceModelSelect = tabAmountSamsung[i];
 				price += tabAmountSamsung[i];
+				valueReturnToCheckAvailability = true;
 			}
 		}
+		if (valueReturnToCheckAvailability == true) {
+			System.out.println("The product you have selected is available");
+		} else {
+			System.out.println("The product you have selected is not available.");
+			valueReturnToCheckAvailability = false;
+
+		}
+		return valueReturnToCheckAvailability;
 	}
 
-	void applePhoneModels(String[] modelsApple, int[] tabAmountApple) {
+	boolean applePhoneModels(String[] modelsApple, int[] tabAmountApple) {
 		System.out.println("Please enter the model that you want to buy from below ");
 		for (int i = 0; i < modelsApple.length; i++) {
 			System.out.println(modelsApple[i] + "  $" + tabAmountApple[i]);
@@ -48,9 +60,18 @@ public class MobilePhoneWithPlan {
 			if (modelSelect.equals(modelsApple[i])) {
 				priceModelSelect = tabAmountApple[i];
 				price += tabAmountApple[i];
-
+				valueReturnToCheckAvailability = true;
 			}
 		}
+		if (valueReturnToCheckAvailability == true) {
+			System.out.println("The product you have selected is available");
+		} else {
+			System.out.println("The product you have selected is not available.");
+			valueReturnToCheckAvailability = false;
+
+		}
+
+		return valueReturnToCheckAvailability;
 	}
 
 	void selectPlan(String[] connectionProvider, int[] planAmount) {
@@ -63,6 +84,9 @@ public class MobilePhoneWithPlan {
 			if (planSelect.equals(connectionProvider[i])) {
 				pricePlanSelect = planAmount[i];
 				price += planAmount[i];
+			} else {
+				System.out.println("The plan you have selected is not available.");
+				break;
 			}
 		}
 	}
