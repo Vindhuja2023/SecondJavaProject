@@ -1,4 +1,4 @@
-package guessingGame;
+package nameGuessingGame;
 
 public class MainNameGuessingGame {
 
