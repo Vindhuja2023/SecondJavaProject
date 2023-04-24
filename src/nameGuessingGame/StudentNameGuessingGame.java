@@ -7,10 +7,10 @@ public class StudentNameGuessingGame {
 	Scanner input = new Scanner(System.in);
 
 	public String getRandomStudentName(String[] nameOfStudents) {
-		Random r = new Random();
-		int randomStudentIndex = r.nextInt(nameOfStudents.length);
+		Random random = new Random();
+		int randomStudentIndex = random.nextInt(nameOfStudents.length);
 		String randomStudent = nameOfStudents[randomStudentIndex];
-		System.out.println(randomStudent);
+		// System.out.println(randomStudent);
 		return randomStudent;
 	}
 
@@ -26,9 +26,9 @@ public class StudentNameGuessingGame {
 	public void guessNameLetter(String randomStudent, char[] lettersInName) {
 		int point = 10;
 		int wrongCount = 0;
-		System.out.println("You have guessed (" + wrongCount + ") wrong letters");
-		while (point > 0 && wrongCount < 5) {
 
+		while (point > 0 && wrongCount < 5) {
+			System.out.println("You have guessed (" + wrongCount + ") wrong letters");
 			System.out.println("Guess a letter : ");
 			char enterCharacter = input.next().charAt(0);
 			if (randomStudent.contains(enterCharacter + "")) {
@@ -43,7 +43,7 @@ public class StudentNameGuessingGame {
 				wrongCount += 1;
 
 			}
-			System.out.println("You have guessed (" + wrongCount + ") wrong letters");
+
 			if (randomStudent.equals(String.valueOf(lettersInName))) {
 				System.out.println(lettersInName);
 				System.out.println("You won");
@@ -53,6 +53,7 @@ public class StudentNameGuessingGame {
 			System.out.println(lettersInName);
 			// System.out.println("Remaining point " + point);
 		}
+		System.out.println("You have guessed (" + wrongCount + ") wrong letters");
 		if (point == 0 || wrongCount >= 5) {
 			System.out.println("Game over");
 		}
