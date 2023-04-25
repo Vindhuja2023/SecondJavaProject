@@ -4,16 +4,14 @@ public class MainNameGuessingGame {
 
 	public static void main(String[] args) {
 
-		String[] nameOfStudents = { "Aleena", "Angel", "Asha", "Clemin", "Gopesh", "Hamneet", "Jimna", "Jobin", "Jude",
-				"Kamaldeep", "Manpreetk", "Manpreets", "Mariya", "Namitha", "Neelam", "Nisha", "Parminder", "Rajat",
-				"Rojy", "Sojan", "Suchitra", "Vindhuja" };
-
+		//
 		StudentNameGuessingGame game = new StudentNameGuessingGame();
-		String randomStudent = game.getRandomStudentName(nameOfStudents);
+		String randomStudent = game.getRandomStudentName();
+		System.out.println( randomStudent);
 		char[] lettersInName = game.getCharacterArrayForRandomStudentSelected(randomStudent);
 		System.out.println("You are guessing : ");
 		System.out.println(lettersInName);
-		game.guessNameLetter(randomStudent, lettersInName);
+		game.guessNameLetter(10,randomStudent, lettersInName);
 
 	}
 
