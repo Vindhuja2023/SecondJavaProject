@@ -42,16 +42,16 @@ public class StudentNameGuessingGame {
 	public void guessNameLetter(int point, String randomStudent, char[] lettersInName) {
 		char[] wrongChar = new char[randomStudent.length()];
 		int wrongCount = 0;
-		
+
 		char startChar = Character.toLowerCase(randomStudent.charAt(0));
-		//boolean matchingValue = false;
+
 		while (point > 0 && wrongCount < 5) {
 
 			System.out.println("Guess a letter : ");
 			char enterCharacter = input.next().charAt(0);
-			
+
 			enterCharacter = Character.toLowerCase(enterCharacter);
-			if (randomStudent.contains(enterCharacter+"")||(startChar+"").contains(enterCharacter+"")) {
+			if (randomStudent.contains(enterCharacter + "") || (startChar + "").contains(enterCharacter + "")) {
 
 				if (String.valueOf(lettersInName).contains(enterCharacter + "")) {
 					System.out.println("Already taken input character entered.");
@@ -65,10 +65,9 @@ public class StudentNameGuessingGame {
 					}
 				}
 			} else {
-				int i=0;
-				for ( i = i + wrongCount; i < randomStudent.length();) {
+				int i = 0;
+				for (i = i + wrongCount; i < randomStudent.length();) {
 					wrongChar[i] = enterCharacter;
-					
 					break;
 				}
 				point--;
