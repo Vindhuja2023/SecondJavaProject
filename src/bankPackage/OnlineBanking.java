@@ -2,26 +2,31 @@ package bankPackage;
 
 public class OnlineBanking extends BankOperation {
 
-	private String accountNumber;
 	private String password;
-	private int withdrawAmount;
+	private String onlineBankingPassword;
+
 	private int depositAmount;
+	private double totalFundsAvailable;
+
+	public OnlineBanking(String onlineBankingPassword, String nameOfAccountHolder, double totalFundsAvailable) {
+		super();
+		this.onlineBankingPassword = onlineBankingPassword;
+		this.nameOfAccountHolder = nameOfAccountHolder;
+		this.totalFundsAvailable = totalFundsAvailable;
+	}
 
 	@Override
 	public boolean validatePersonAccount() {
 		for (chance = 1; chance <= 3; chance++) {
-			System.out.println("Enter Account number : ");
-			accountNumber = sc.next();
+
 			System.out.println("Enter Password : ");
 			password = sc.next();
-			if (accountNumber.equals(person.getBankAccountNumber())
-					&& password.equals(person.getOnlineBankingPassword())) {
-				System.out.println(
-						"Hi " + person.getNameOfAccountHolder() + ", You are logged into the online banking. ");
+			if (password.equals(onlineBankingPassword)) {
+				System.out.println("Hi " + nameOfAccountHolder + ", You are logged into the online banking. ");
 				isvalidationSucess = true;
 				break;
 			} else {
-				System.out.println("Incorrect account number or password.Try again. ");
+				System.out.println("Incorrect password.Try again. ");
 				isvalidationSucess = false;
 			}
 		}
@@ -33,17 +38,8 @@ public class OnlineBanking extends BankOperation {
 
 	@Override
 	public double withdrawMoney() {
-		System.out.println("Enter the amount to withdraw :");
-		withdrawAmount = sc.nextInt();
-		if (withdrawAmount < person.getTotalFundsAvailable()) {
-			System.out.println(person.getNameOfAccountHolder() + " withdrwan " + withdrawAmount);
-			balanceAvailable = person.getTotalFundsAvailable() - withdrawAmount;
-
-		} else {
-			System.out.println("Insufficient balance,try again");
-			balanceAvailable = person.getTotalFundsAvailable();
-		}
-
+		System.out.println("Online banking doesn't allow withdrawel of Money");
+		balanceAvailable = totalFundsAvailable;
 		return balanceAvailable;
 	}
 
@@ -51,14 +47,10 @@ public class OnlineBanking extends BankOperation {
 	public double depositMoney() {
 		System.out.println("Enter the depositing amount :");
 		depositAmount = sc.nextInt();
-		balanceAvailable = person.getTotalFundsAvailable() + depositAmount;
+		balanceAvailable = totalFundsAvailable + depositAmount;
 		System.out.println("Your account have been credited with " + depositAmount);
 		return balanceAvailable;
-	}
-
-	@Override
-	public void viewBalance(double balance) {
-		System.out.println("Your current  balance is " + balanceAvailable);
 
 	}
+
 }

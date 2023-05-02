@@ -7,6 +7,7 @@ public class PersonAccount {
 	private double totalFundsAvailable;
 	private int pinATM;
 	private String onlineBankingPassword;
+	private boolean isBank;
 
 	public PersonAccount(String bankAccountNumber, String nameOfAccountHolder, double totalFundsAvailable, int pinATM,
 			String onlineBankingPassword) {
@@ -15,9 +16,17 @@ public class PersonAccount {
 		this.totalFundsAvailable = totalFundsAvailable;
 		this.pinATM = pinATM;
 		this.onlineBankingPassword = onlineBankingPassword;
+
+	}
+
+	public boolean isBankAcceesing() {
+		System.out.println("Confirm it is bank who accessing the personal details of account holder");
+		isBank = true;
+		return isBank;
 	}
 
 	public String getBankAccountNumber() {
+
 		return bankAccountNumber;
 	}
 
@@ -30,11 +39,19 @@ public class PersonAccount {
 	}
 
 	public int getPinATM() {
-		return pinATM;
+		if (isBank) {
+
+			return pinATM;
+		}
+		return 0;
 	}
 
 	public String getOnlineBankingPassword() {
-		return onlineBankingPassword;
+		if (isBank) {
+
+			return onlineBankingPassword;
+		}
+		return null;
 	}
 
 }
